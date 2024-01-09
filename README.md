@@ -1,4 +1,4 @@
-# 2024-RobotCoprocessor
+# RobotCoprocessor
 Robot coprocessor imaging, install, and configuration
 
 ## Hardware 
