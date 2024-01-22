@@ -1,0 +1,10 @@
+services:
+  battery-info-logger:
+    build: .
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - .:/app
+      - /dev/bus/usb:/dev/bus/usb
+    working_dir: /app
+    command: bash -c "chmod +x entrypoint.sh && ./entrypoint.sh"

@@ -1,19 +1,22 @@
-# RobotCoprocessor
-Robot coprocessor imaging, install, and configuration
+# Robot-Coprocessors
+A collection of component projects, source code and documentation for various on-board secondary robot coprocessors including vision tracking, distance sensors, LED lighting, and battery tagging/logging
 
-## Hardware 
-* [OrangePi 5 - 8GB](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-32GB.html)
-* [Arducam 120fps Mono Global Shutter USB Camera](https://www.amazon.com/gp/product/B096M5DKY6)
+## Components
+* [Robot-Vision](Robot-Vision)
+* [Robot-Sensors](Robot-Sensors)
+* [Robot-Lights](Robot-Lights)
+* [Robot-BatteryInfo](Robot-BatteryInfo)
 
-## Software
-#### Operating System: install and configure Armbian operating system, static IP networking, virtualization with docker, etc.
-* TBD
+## Networking
+Following the requirements from: [WPILib Docs - Networking - Static IP Configuration](https://docs.wpilib.org/en/stable/docs/networking/networking-introduction/ip-configurations.html#on-the-field-static-configuration)
 
-## Subsystems
-#### PhotonVision
-* Clone this repo locally to the OrangePi and copy the PhotonVision folder into the user home directory
-* Run `docker-compose build` (to build the PhotonVision image and container)
-* Run `docker-compose up -d` (to start the PhotonVision container)
+| Component | IP Address | Subnet Mask |
+|-----------|-----------|-----------|
+| Radio | `10.28.81.1` | FMS |
+| roboRIO | `10.28.81.2` | 255.255.255.0 |
+| Driver Station | `10.28.81.5` | 255.0.0.0 / 8 |
+| Robot-Vision | `10.28.81.6` | 255.255.255.0 / 24 |
+| Robot-Sensors | `10.28.81.7` | 255.255.255.0 / 24 |
+| Robot-Lights | `10.28.81.8` | 255.255.255.0 / 24 |
 
-#### BatteryInfoLogger
-* Follow the readme doc for cloning, building, and configuring the dockerized python app in this repo: [BatteryInfoLogger](https://github.com/frc2881/BatteryInfoLogger)
+## (TBD)
