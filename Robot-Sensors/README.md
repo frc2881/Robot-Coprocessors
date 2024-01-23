@@ -58,6 +58,7 @@
     * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
     * Run `sudo -E env PATH=$PATH python3 raspi-blinka.py`
   * After completing the automated install steps and reconnecting, run `cd Robot-Sensors` and `source /home/pi/Robot-Sensors/env/bin/activate` for the Python virtual environment
+  * Run `rm raspi-blinka.py`
   * Run `pip install python-decouple` (for .env config access)
   * Run `pip install adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
   * Run `pip install adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
@@ -80,4 +81,4 @@
 * For remote development on the coprocessor using VSCode 
   * Install the `Remote - SSH` extension from Microsoft and follow the instructions for connecting to a remote host and opening a local folder (`Robot-Sensors`)
   * Using the integrated terminal, using the same commands for local development to stop the service and activate the Python virtual environment
-  * Use the Explorer to access the edit the remote files as needed for development and testing
+  * Use the Explorer to access and edit the remote files as needed for development and testing

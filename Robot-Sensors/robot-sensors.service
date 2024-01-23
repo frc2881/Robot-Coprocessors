@@ -1,0 +1,8 @@
+[Unit]
+Description=Robot-Sensors
+
+[Service]
+ExecStart=/home/pi/Robot-Sensors/env/bin/python3 /home/pi/Robot-Sensors/main.py
+
+[Install]
+WantedBy=multi-user.target
