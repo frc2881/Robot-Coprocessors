@@ -47,11 +47,20 @@
   * Run `mv Robot-Coprocessors/Robot-Sensors .` to relocate this project and code into the `pi` home root
   * Run `rm -rf Robot-Coprocessors` to remove everything else not needed on this coprocessor
   * Run `cd Robot-Sensors` to peform the rest of the configuration within the project root
-  * Follow the steps to update the Raspberry Pi OS and Python, set up the Python virtual environment (within `Robot-Sensors`) and complete the [Automated Install](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi) steps to install the Adafruit Blinka library and tools
-  * After completing the automated install steps and reconnecting, run `cd Robot-Sensors` and `source env/bin/activate` for the Python virtual environment
-  * Run `pip install python-decouple pyntcore` (for .env config access and the WPILib NetworkTables library)
+  * Following the steps outlined in this guide: [Automated Install](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
+    * Run `sudo apt-get install python3-pip`
+    * Run `sudo apt install --upgrade python3-setuptools`
+    * Run `sudo apt install python3.11-venv`
+    * Run `python -m venv env --system-site-packages`
+    * Run `source /home/pi/Robot-Sensors/env/bin/activate`
+    * Run `pip3 install --upgrade adafruit-python-shell`
+    * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
+    * Run `sudo -E env PATH=$PATH python3 raspi-blinka.py`
+  * After completing the automated install steps and reconnecting, run `cd Robot-Sensors` and `source /home/pi/Robot-Sensors/env/bin/activate` for the Python virtual environment
+  * Run `pip install python-decouple` (for .env config access)
   * Run `pip install adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
   * Run `pip install adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
+  * Run `pip install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)  
   * ... more TBD ...
 
 ## (TBD)
