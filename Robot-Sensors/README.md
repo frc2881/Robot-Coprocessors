@@ -40,6 +40,7 @@
   * Set the static IP address: `sudo nmcli con mod "Wired connection 1" ipv4.addresses 10.28.81.7/24 ipv4.gateway 10.28.81.1 ipv4.dns "10.28.81.1" ipv4.method manual`
   * Update and restart the connection: `sudo nmcli con up "Wired connection 1"`
 * Base OS, Python, and library dependencies (RPi02W must be connected to internet)
+  * Connect remotely using terminal: `ssh pi@10.28.81.7` 
   * Run `sudo apt-get update`
   * Run `sudo apt-get upgrade` 
   * Run `sudo apt-get install -y git build-essential libc-dev`
@@ -60,7 +61,23 @@
   * Run `pip install python-decouple` (for .env config access)
   * Run `pip install adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
   * Run `pip install adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
-  * Run `pip install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)  
-  * ... more TBD ...
+  * Run `pip install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
+  * Run `deactivate` to exit the Python virtual environment 
+* Install and enable service to run main Python script at system boot
+  * Run `sudo cp robot-sensors.service /lib/systemd/system`
+  * Run `sudo systemctl enable robot-sensors`
+  * Run `sudo systemctl start robot-sensors`
+  * Run `sudo reboot` 
 
-## (TBD)
+## Development
+* For local development on the coprocessor:
+  * Connect remotely using terminal: `ssh pi@10.28.81.7`
+  * Run `sudo systemctl stop robot-sensors` (to stop the service and enable editing and testing)
+  * Run `cd Robot-Sensors`
+  * Run `source /home/pi/Robot-Sensors/env/bin/activate`
+  * Run `nano main.py` (to edit/save the main Python script)
+  * Run `python -u main.py` to run the Python script outside the service context for development purposes
+* For remote development on the coprocessor using VSCode 
+  * Install the `Remote - SSH` extension from Microsoft and follow the instructions for connecting to a remote host and opening a local folder (`Robot-Sensors`)
+  * Using the integrated terminal, using the same commands for local development to stop the service and activate the Python virtual environment
+  * Use the Explorer to access the edit the remote files as needed for development and testing
