@@ -19,24 +19,30 @@
 
 ## Setup & Configuration
 * Raspberry Pi Imager settings:
-  * Enable ssh
-  * Username: `pi`
-  * Password: `ladycans`
-  * Hostname: `frc2881-sensors`
-  * Time Zone: `Central (America/Chicago)`
-  * Locale: `en-us`
+  * General
+    * Set hostname: `frc2881-sensors`.local
+    * Set username and password: `pi` / `ladycans`
+    * No WLAN
+    * Set locale settings: `Central (America/Chicago)` / `us`
+  * Services
+    * Enable SSH: Use password authentication 
 * Raspberry Pi OS setup after initial boot:
   * Connect remotely using terminal: `ssh pi@10.28.81.???` (find the dynamic IP address assigned)
   * Run `sudo raspi-config`
+    * Interface Options:
+      * Enabled I2C and SPI interfaces
+    * Localization Options:
+      * Locale: disable en_GB / enable: en_US / select en_US.UTF-8
     * Advanced options:
       * Expand filesystem
-      * Enable network interface names
-      * Enable I2C interface
+      * Enable (predictable) network interface names
     * Exit / reboot / reconnect
   * Set the static IP address: `sudo nmcli con mod "Wired connection 1" ipv4.addresses 10.28.81.7/24 ipv4.gateway 10.28.81.1 ipv4.dns "10.28.81.1" ipv4.method manual`
   * Update and restart the connection: `sudo nmcli con up "Wired connection 1"`
 * Base OS, Python, and library dependencies (RPi02W must be connected to internet)
-  * Run `apt install -y git build-essential libc-dev`
+  * Run `sudo apt-get update`
+  * Run `sudo apt-get upgrade` 
+  * Run `sudo apt-get install -y git build-essential libc-dev`
   * Run `git clone https://github.com/frc2881/Robot-Coprocessors` (assuming you are in the `pi` home root)
   * Run `mv Robot-Coprocessors/Robot-Sensors .` to relocate this project and code into the `pi` home root
   * Run `rm -rf Robot-Coprocessors` to remove everything else not needed on this coprocessor
