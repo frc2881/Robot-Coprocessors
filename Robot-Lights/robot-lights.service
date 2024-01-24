@@ -1,0 +1,8 @@
+[Unit]
+Description=Robot-Lights
+
+[Service]
+ExecStart=/home/pi/Robot-Lights/env/bin/python3 /home/pi/Robot-Lights/main.py
+
+[Install]
+WantedBy=multi-user.target
