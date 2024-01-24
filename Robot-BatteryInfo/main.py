@@ -1,16 +1,21 @@
-#!/usr/bin/env python3
-
+from decouple import config
+import ntcore
+from smartcard.CardMonitoring import CardMonitor, CardObserver
 import os
 import time
 import re
-from decouple import config
-from smartcard.CardMonitoring import CardMonitor, CardObserver
-import ntcore
 
 NT_SERVER_ADDRESS = config("NT_SERVER_ADDRESS", default = "0.0.0.0")
 BATTERY_INFO_TOPIC_NAME = config("BATTERY_INFO_TOPIC_NAME", default = "/SmartDashboard/Robot/Battery/Info")
 
+nt = ntcore.NetworkTableInstance.getDefault()
+nt.startClient4("coproc-robot-batteryinfo")
+nt.setServer(NT_SERVER_ADDRESS, ntcore.NetworkTableInstance.kDefaultPort4)
+
 batteryInfo = "UNKNOWN"
+
+batteryInfoTopic = nt.getStringTopic(BATTERY_INFO_TOPIC_NAME).publish()
+batteryInfoTopic.setDefault(batteryInfo)
 
 class CardTransmitObserver(CardObserver):
   def update(self, observable, actions):
@@ -36,11 +41,6 @@ monitor = CardMonitor()
 observer = CardTransmitObserver()
 monitor.addObserver(observer)
 
-nt = ntcore.NetworkTableInstance.getDefault()
-nt.startClient4("coproc-robot-batteryinfo")
-nt.setServer(NT_SERVER_ADDRESS, ntcore.NetworkTableInstance.kDefaultPort4)
-topic = nt.getStringTopic(BATTERY_INFO_TOPIC_NAME).publish()
-
 while True:
-  topic.set(batteryInfo)
-  time.sleep(10)
+  batteryInfoTopic.set(batteryInfo)
+  time.sleep(20)
