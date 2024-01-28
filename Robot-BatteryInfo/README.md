@@ -17,8 +17,8 @@ _Note: This hardware and software runs attached to the [Robot-Vision](Robot-Visi
 * Run `rm -rf Robot-Coprocessors` to remove everything else not needed on this coprocessor
 * Run `cd Robot-BatteryInfo` to peform the rest of the configuration within the project root
 * Run `sudo apt-get install docker.io docker-compose` (to install docker engine requirements if not already installed)
-* Run `sudo usermod -aG docker pi` (to allow the pi user to run docker without sudo privleges)
-* Exit from the ssh connection and reconnect
+* Run `sudo usermod -aG docker pi` (to allow the pi user to run docker without using sudo)
+* Close the ssh connection and reconnect / login
 * Run `cd Robot-BatteryInfo` to peform the rest of the configuration within the project root
 * Run `docker compose build` to build the docker image
 * Edit the configuration in the `.env` file as needed (using `nano .env` locally)
