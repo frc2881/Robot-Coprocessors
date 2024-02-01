@@ -13,6 +13,7 @@
 ## Software
 * Operating System: [Raspberry Pi OS Lite (64-bit / bookworm)](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit)
 * microSD card imaging: [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+* [Adafruit CircuitPython LED Animation Library](https://docs.circuitpython.org/projects/led-animation)
 
 ## Setup & Configuration
 * Raspberry Pi Imager settings:
@@ -58,7 +59,8 @@
     * Run `sudo -E env PATH=$PATH python3 raspi-blinka.py`
   * After completing the automated install steps and reconnecting, run `cd Robot-Lights` and `source /home/pi/Robot-Lights/env/bin/activate` for the Python virtual environment
   * Run `rm raspi-blinka.py`
-  * (... more configuration TBD ...)
+  * Run `pip install adafruit-circuitpython-neopixel`
+  * Run `pip install adafruit-circuitpython-led-animation`
   * Run `deactivate` to exit the Python virtual environment 
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-lights.service /lib/systemd/system`
@@ -73,7 +75,7 @@
   * Run `cd Robot-Lights`
   * Run `source /home/pi/Robot-Lights/env/bin/activate`
   * Run `nano main.py` (to edit/save the main Python script)
-  * Run `python -u main.py` to run the Python script outside the service context for development purposes
+  * Run `sudo --preserve-env=PATH,VIRTUAL_ENV python -u main.py` to run the Python script outside the service context for development purposes
 * For remote development on the coprocessor using VSCode 
   * Install the `Remote - SSH` extension from Microsoft and follow the instructions for connecting to a remote host and opening a local folder (`Robot-Sensors`)
   * Using the integrated terminal, using the same commands for local development to stop the service and activate the Python virtual environment

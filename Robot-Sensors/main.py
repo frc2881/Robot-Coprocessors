@@ -1,4 +1,5 @@
 from decouple import config
+import atexit
 import ntcore
 import board
 import adafruit_tca9548a
@@ -32,6 +33,11 @@ distanceSensorIntake.start_ranging()
 distanceSensorLauncher = adafruit_vl53l4cd.VL53L4CD(tca[DISTANCE_SENSOR_LAUNCHER_PORT])
 distanceSensorLauncher.timing_budget = 20
 distanceSensorLauncher.start_ranging()
+
+def onExit():
+  distanceSensorLauncherTopic.set(-1)
+
+atexit.register(onExit)
 
 while True:
   if distanceSensorIntake.data_ready:
