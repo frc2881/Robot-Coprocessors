@@ -22,7 +22,7 @@ nt.setServer(NT_SERVER_ADDRESS, ntcore.NetworkTableInstance.kDefaultPort4)
 lightsModeTopic = nt.getStringTopic(LIGHTS_MODE_TOPIC_NAME).subscribe("DEFAULT")
 lightsMode = "DEFAULT"
 
-colorHotPink = color.calculate_intensity((255, 105, 180), 0.2)
+colorHotPink = color.calculate_intensity((150, 0, 10), 1)
 
 pixels = neopixel.NeoPixel(BOARD_PIN, LIGHTS_COUNT, brightness=BRIGHTNESS, auto_write=False, pixel_order=PIXEL_ORDER)
 
