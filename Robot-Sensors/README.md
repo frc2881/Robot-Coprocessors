@@ -16,6 +16,7 @@
 ## Software
 * Operating System: [Raspberry Pi OS Lite (64-bit / bookworm)](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit)
 * microSD card imaging: [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+* [Adafruit CircuitPython VL53L4CD Library](https://docs.circuitpython.org/projects/vl53l4cd/en/latest/)
 
 ## Setup & Configuration
 * Raspberry Pi Imager settings:

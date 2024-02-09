@@ -27,11 +27,11 @@ i2c = board.I2C()
 tca = adafruit_tca9548a.TCA9548A(i2c)
 
 distanceSensorIntake = adafruit_vl53l4cd.VL53L4CD(tca[DISTANCE_SENSOR_INTAKE_PORT])
-distanceSensorIntake.timing_budget = 20
+distanceSensorIntake.timing_budget = 10
 distanceSensorIntake.start_ranging()
 
 distanceSensorLauncher = adafruit_vl53l4cd.VL53L4CD(tca[DISTANCE_SENSOR_LAUNCHER_PORT])
-distanceSensorLauncher.timing_budget = 20
+distanceSensorLauncher.timing_budget = 10
 distanceSensorLauncher.start_ranging()
 
 def onExit():
