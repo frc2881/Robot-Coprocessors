@@ -55,15 +55,15 @@
     * Run `sudo apt install python3.11-venv`
     * Run `python -m venv env --system-site-packages`
     * Run `source /home/pi/Robot-Sensors/env/bin/activate`
-    * Run `pip install python-decouple` (for .env config access)
-    * Run `pip install --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
+    * Run `pip install --upgrade python-decouple` (for .env config access)
+    * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
     * Run `pip install --upgrade adafruit-python-shell`
     * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
     * Run `sudo -E env PATH=$PATH python3 raspi-blinka.py`
   * After completing the automated install steps and reconnecting, run `cd Robot-Sensors` and `source /home/pi/Robot-Sensors/env/bin/activate` for the Python virtual environment
   * Run `rm raspi-blinka.py`
-  * Run `pip install adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
-  * Run `pip install adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
+  * Run `pip install --upgrade adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
+  * Run `pip install --upgrade adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
   * Run `deactivate` to exit the Python virtual environment 
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-sensors.service /lib/systemd/system`
