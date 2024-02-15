@@ -14,8 +14,6 @@ LIGHTS_COUNT = 150
 BRIGHTNESS = 1
 PIXEL_ORDER = neopixel.GRB
 
-time.sleep(30)
-
 nt = ntcore.NetworkTableInstance.getDefault()
 nt.startClient4("coproc-robot-lights")
 nt.setServer(NT_SERVER_ADDRESS, ntcore.NetworkTableInstance.kDefaultPort4)
