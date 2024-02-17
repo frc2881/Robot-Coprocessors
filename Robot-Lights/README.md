@@ -28,7 +28,7 @@
   * Connect remotely using terminal: `ssh pi@10.28.81.???` (find the dynamic IP address assigned)
   * Run `sudo raspi-config`
     * Interface Options:
-      * Enabled I2C and SPI interfaces
+      * Enable I2C and SPI interfaces
     * Localization Options:
       * Locale: disable en_GB / enable: en_US / select en_US.UTF-8
     * Advanced options:

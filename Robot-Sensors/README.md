@@ -6,7 +6,7 @@
 ## Hardware 
 * Board: [Raspberry Pi Zero 2 W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/)
 * Networking: USB-C ethernet adapter + Micro-USB to USB-C adapter
-* [SparkFun Qwiic SHIM for Raspberry Pi](https://www.sparkfun.com/products/15794) (1)
+* [SparkFun Qwiic pHat](https://www.sparkfun.com/products/15945) (1)
 * [SparkFun Qwiic Mux Breakout - 8 Channel (TCA9548A)](https://www.sparkfun.com/products/16784) (1)
 * [SparkFun Distance Sensor - 1.3 Meter, VL53L4CD (Qwiic)](https://www.sparkfun.com/products/18993) (1+)
 * [SparkFun QwiicBus - EndPoint](https://www.sparkfun.com/products/16988) (2 per sensor)
@@ -31,7 +31,7 @@
   * Connect remotely using terminal: `ssh pi@10.28.81.???` (find the dynamic IP address assigned)
   * Run `sudo raspi-config`
     * Interface Options:
-      * Enabled I2C and SPI interfaces
+      * Enable I2C and SPI interfaces
     * Localization Options:
       * Locale: disable en_GB / enable: en_US / select en_US.UTF-8
     * Advanced options:
@@ -65,6 +65,10 @@
   * Run `pip install --upgrade adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
   * Run `pip install --upgrade adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
   * Run `deactivate` to exit the Python virtual environment 
+* Set the I2C clock speed to 100 kHz for the RPi02W
+  * Run `sudo nano /boot/config.txt`
+  * Add the line `dtparam=i2c_arm_baudrate=100000`
+  * Save the file and exit nano
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-sensors.service /lib/systemd/system`
   * Run `sudo systemctl enable robot-sensors`
