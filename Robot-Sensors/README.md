@@ -55,15 +55,15 @@
     * Run `sudo apt install python3.11-venv`
     * Run `python -m venv env --system-site-packages`
     * Run `source /home/pi/Robot-Sensors/env/bin/activate`
-    * Run `pip install --upgrade python-decouple` (for .env config access)
     * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
     * Run `pip install --upgrade adafruit-python-shell`
     * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
     * Run `sudo -E env PATH=$PATH python3 raspi-blinka.py`
   * After completing the automated install steps and reconnecting, run `cd Robot-Sensors` and `source /home/pi/Robot-Sensors/env/bin/activate` for the Python virtual environment
   * Run `rm raspi-blinka.py`
-  * Run `pip install --upgrade adafruit-circuitpython-tca9548a` (for the I2C multiplexer)
-  * Run `pip install --upgrade adafruit-circuitpython-vl53l4cd` (for the Tof distance sensor)
+  * Run `pip install --upgrade adafruit-circuitpython-tca9548a` (for TCA9548A I2C multiplexer)
+  * Run `pip install --upgrade adafruit-circuitpython-vl53l4cd` (for VL53L4CD ToF distance sensor)
+  * Run `pip install --upgrade adafruit-circuitpython-vl53l0x` (for VL53L0X ToF distance sensor)
   * Run `deactivate` to exit the Python virtual environment 
 * Set the I2C clock speed to 100 kHz for the RPi02W
   * Run `sudo nano /boot/config.txt`

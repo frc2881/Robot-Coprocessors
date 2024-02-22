@@ -6,7 +6,6 @@ After=network.target
 Type=simple
 ExecStart=/home/pi/Robot-Sensors/env/bin/python3 /home/pi/Robot-Sensors/main.py
 Restart=always
-RestartSec=3s
 KillSignal=SIGINT
 
 [Install]
