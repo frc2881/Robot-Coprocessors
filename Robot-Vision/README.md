@@ -15,7 +15,8 @@
 
 ## Setup & Configuration
 * OrangePi 5 OS setup after initial boot:
-  * Connect remotely using terminal: `ssh pi@10.28.81.???` (find the dynamic IP address assigned)
+  * Find the IP address on the network: `ping photonvision.local`
+  * Connect remotely using terminal: `ssh pi@10.28.81.???`
   * Change the default password: `passwd` (change `raspberry` to  `ladycans`)
   * Set the static IP address: `sudo nmcli con mod netplan-eth0 ipv4.addresses 10.28.81.6/24 ipv4.gateway 10.28.81.1 ipv4.dns "10.28.81.1" ipv4.method manual`
   * Update and restart the connection: `sudo nmcli con up netplan-eth0`
