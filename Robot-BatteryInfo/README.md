@@ -21,7 +21,6 @@ _Note: This hardware and software runs attached to the [Robot-Vision](Robot-Visi
 * Close the ssh connection and reconnect / login
 * Run `cd Robot-BatteryInfo` to peform the rest of the configuration within the project root
 * Run `docker compose build` to build the docker image
-* Edit the configuration in the `.env` file as needed (using `nano .env` locally)
 * Run `docker compose up -d` to setup and run the image as a background daemon on system start
 * The coprocessor can be disconnected from internet and is ready for local robot network operation
 

@@ -52,7 +52,6 @@
     * Run `sudo apt install python3.11-venv`
     * Run `python -m venv env --system-site-packages`
     * Run `source /home/pi/Robot-Lights/env/bin/activate`
-    * Run `pip install --upgrade python-decouple` (for .env config access)
     * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
     * Run `pip install --upgrade adafruit-python-shell`
     * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`

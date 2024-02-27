@@ -1,29 +1,24 @@
-from decouple import config
 import atexit
+import board
 import time
 import ntcore
-import board
 import neopixel
 from adafruit_led_animation import color, animation, helper
 from adafruit_led_animation.animation import sparklepulse
 
-NT_SERVER_ADDRESS = config("NT_SERVER_ADDRESS", default = "0.0.0.0")
-LIGHTS_MODE_TOPIC_NAME = config("LIGHTS_MODE_TOPIC_NAME", default = "/SmartDashboard/Robot/Lights/Mode")
 BOARD_PIN = board.D18
 LIGHTS_COUNT = 150
-BRIGHTNESS = 1
-PIXEL_ORDER = neopixel.GRB
 
 nt = ntcore.NetworkTableInstance.getDefault()
 nt.startClient4("coproc-robot-lights")
-nt.setServer(NT_SERVER_ADDRESS, ntcore.NetworkTableInstance.kDefaultPort4)
+nt.setServer("10.28.81.2", ntcore.NetworkTableInstance.kDefaultPort4)
 
-lightsModeTopic = nt.getStringTopic(LIGHTS_MODE_TOPIC_NAME).subscribe("DEFAULT")
+lightsModeTopic = nt.getStringTopic("/SmartDashboard/Robot/Lights/Mode").subscribe("DEFAULT")
 lightsMode = "DEFAULT"
 
 colorHotPink = color.calculate_intensity((150, 0, 10), 1)
 
-pixels = neopixel.NeoPixel(BOARD_PIN, LIGHTS_COUNT, brightness=BRIGHTNESS, auto_write=False, pixel_order=PIXEL_ORDER)
+pixels = neopixel.NeoPixel(BOARD_PIN, LIGHTS_COUNT, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
 
 sparklePulse = sparklepulse.SparklePulse(pixels, speed=0.05, period=3, color=colorHotPink)
 
