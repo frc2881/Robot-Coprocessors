@@ -18,10 +18,9 @@
   * Find the IP address on the network: `ping photonvision.local`
   * Connect remotely using terminal: `ssh pi@10.28.81.???`
   * Change the default password: `passwd` (change `raspberry` to  `ladycans`)
-  * Set the static IP address: `sudo nmcli con mod netplan-eth0 ipv4.addresses 10.28.81.6/24 ipv4.gateway 10.28.81.1 ipv4.dns "10.28.81.1" ipv4.method manual`
-  * Update and restart the connection: `sudo nmcli con up netplan-eth0`
-  * Open PhotonVision in web browser to confirm networking change and complete season-specific configuration and calibration: `http://10.28.81.6:5800`
+  * Open PhotonVision in web browser to confirm networking change and complete season-specific configuration and calibration: `http://10.28.81.???:5800`
 * PhotonVision configuration (see [documentation](https://docs.photonvision.org/en/latest/index.html) for complete details):
+  * Under Settings, configure NT server address (`10.28.81.2`), static IP address (`10.28.81.6`), host name (`frc2881-vision`) and network manager interface
   * Configure camera name, model, and import calibration file (for AprilTag tracking cameras)
   * Select pipeline for each camera as appropriate (AprilTag or Object Detection)
   * For AprilTag pipeline, select resolution of 1280x720 @ 120FPS/MJPEG (matching with imported calibration)
