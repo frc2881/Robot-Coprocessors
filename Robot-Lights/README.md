@@ -51,7 +51,7 @@
     * Run `sudo apt install --upgrade python3-setuptools`
     * Run `sudo apt install python3.11-venv`
     * Run `python -m venv env --system-site-packages`
-    * Run `source /home/pi/Robot-Lights/env/bin/activate`
+    * Run `source env/bin/activate`
     * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
     * Run `pip install --upgrade adafruit-python-shell`
     * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
@@ -72,10 +72,6 @@
   * Connect remotely using terminal: `ssh pi@10.28.81.8`
   * Run `sudo systemctl stop robot-lights` (to stop the service and enable editing and testing)
   * Run `cd Robot-Lights`
-  * Run `source /home/pi/Robot-Lights/env/bin/activate`
+  * Run `source env/bin/activate`
   * Run `nano main.py` (to edit/save the main Python script)
   * Run `sudo --preserve-env=PATH,VIRTUAL_ENV python -u main.py` to run the Python script outside the service context for development purposes
-* For remote development on the coprocessor using VSCode 
-  * Install the `Remote - SSH` extension from Microsoft and follow the instructions for connecting to a remote host and opening a local folder (`Robot-Sensors`)
-  * Using the integrated terminal, using the same commands for local development to stop the service and activate the Python virtual environment
-  * Use the Explorer to access and edit the remote files as needed for development and testing

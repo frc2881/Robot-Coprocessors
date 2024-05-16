@@ -1,0 +1,12 @@
+[Unit]
+Description=Robot-BatteryInfo
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/Robot-BatteryInfo/env/bin/python3 /home/pi/Robot-BatteryInfo/main.py
+Restart=always
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

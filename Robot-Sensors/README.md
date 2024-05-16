@@ -54,7 +54,7 @@
     * Run `sudo apt install --upgrade python3-setuptools`
     * Run `sudo apt install python3.11-venv`
     * Run `python -m venv env --system-site-packages`
-    * Run `source /home/pi/Robot-Sensors/env/bin/activate`
+    * Run `source env/bin/activate`
     * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
     * Run `pip install --upgrade adafruit-python-shell`
     * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
@@ -65,10 +65,6 @@
   * Run `pip install --upgrade adafruit-circuitpython-vl53l4cd` (for VL53L4CD ToF distance sensor)
   * Run `pip install --upgrade adafruit-circuitpython-vl53l0x` (for VL53L0X ToF distance sensor)
   * Run `deactivate` to exit the Python virtual environment 
-* Set the I2C clock speed to 100 kHz for the RPi02W
-  * Run `sudo nano /boot/config.txt`
-  * Add the line `dtparam=i2c_arm_baudrate=100000`
-  * Save the file and exit nano
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-sensors.service /lib/systemd/system`
   * Run `sudo systemctl enable robot-sensors`
@@ -80,10 +76,7 @@
   * Connect remotely using terminal: `ssh pi@10.28.81.7`
   * Run `sudo systemctl stop robot-sensors` (to stop the service and enable editing and testing)
   * Run `cd Robot-Sensors`
-  * Run `source /home/pi/Robot-Sensors/env/bin/activate`
+  * Run `source env/bin/activate`
   * Run `nano main.py` (to edit/save the main Python script)
   * Run `python -u main.py` to run the Python script outside the service context for development purposes
-* For remote development on the coprocessor using VSCode 
-  * Install the `Remote - SSH` extension from Microsoft and follow the instructions for connecting to a remote host and opening a local folder (`Robot-Sensors`)
-  * Using the integrated terminal, using the same commands for local development to stop the service and activate the Python virtual environment
-  * Use the Explorer to access and edit the remote files as needed for development and testing
+

@@ -5,13 +5,15 @@
 * Object detection for game piece identification and relative position info
 
 ## Hardware 
-* Board: [OrangePi 5 - 4GB](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5.html)
+* Board: [OrangePi 5 Pro - 16GB](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html)
 * Cameras (for AprilTag tracking) [Arducam OV9281 Global Shutter](https://www.arducam.com/product/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi/)
-* Camera (for Object detection) [ELP IMX179](https://www.elpcctv.com/elp-high-resolution-8-megapixel-sony-imx179-wide-angle-usb-camera-module-with-21mm-lens-p-239.html)
+* Camera (for Object detection) [Arducam OV9782 Color Global Shutter](https://www.arducam.com/product/100fps-global-shutter-color-usb-camera-board-1mp-ov9782-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi-arducam/)
 
 ## Software
 * Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html)
-* Arducam calibration import (1280x720): [calib_arducam_backward__0c45_6366__1280.json](./calib_arducam_backward__0c45_6366__1280.json)
+* Arducam calibration import 
+  * OV9281 @ 1280x720: [calib_arducam_backward__0c45_6366__1280.json](./calib_arducam_backward__0c45_6366__1280.json)
+  * OV9782 @ 1280x720: [calib_3937__0c45_6366__1280.json](./calib_3937__0c45_6366__1280.json)
 
 ## Setup & Configuration
 * OrangePi 5 OS setup after initial boot:

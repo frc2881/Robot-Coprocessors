@@ -43,5 +43,6 @@ while True:
     if distanceSensorLauncher.data_ready:
       distanceLauncher = distanceSensorLauncher.distance * 10
       distanceSensorLauncher.clear_interrupt()
+      distanceSensorLauncherTopic.set(distanceLauncher if distanceLauncher > 0 else -1)
   else:
     time.sleep(1)
