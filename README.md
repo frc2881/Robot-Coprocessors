@@ -43,7 +43,7 @@ See: [Robot-Vision](Robot-Vision) README for full setup and configuration detail
 ### Software
 * Operating System: [Raspberry Pi OS Lite (64-bit / bookworm)](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit)
 * microSD card imaging: [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-* Python 3.11.x
+* Python 3.12.3
 * See each controls project README for additional software components
 
 ## Setup & Configuration
@@ -74,6 +74,15 @@ See: [Robot-Vision](Robot-Vision) README for full setup and configuration detail
   * Run `sudo apt-get upgrade` 
   * Run `sudo apt-get install -y git build-essential libc-dev`
   * Run `sudo apt-get install -y --upgrade python3-pip python3-setuptools python3.11-venv`
+  * Install Python 3.12.3
+    * Run `wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz`
+    * Run `tar -xf Python-3.12.0.tgz`
+    * Run `cd Python-3.12.3`
+    * Run `./configure --enable-optimizations`
+    * Run `make -j 4`
+    * Run `sudo make altinstall`
+    * Run `cd ..`
+    * Run `rm -rf Python-3.12.3`
   * Run `git clone https://github.com/frc2881/Robot-Coprocessors` (assuming you are in the `pi` home root)
   * Run `mv Robot-Coprocessors/* .` to relocate all projects and code into the `pi` home root
   * Run `rm -rf Robot-Coprocessors` to remove the empty repo folder
