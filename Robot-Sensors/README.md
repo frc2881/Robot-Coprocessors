@@ -17,6 +17,9 @@
 
 ## Setup & Configuration
 * Setup environment and install libraries (RPi must be connected to internet)
+  * Run `sudo nano /boot/firmware/config.txt`
+    * Add the following line `dtparam=i2c_arm_baudrate=10000` right after the existing dtparam entries
+    * Save the file and reboot the pickup the clock speed change
   * Run `cd Robot-Sensors` to peform the setup and configuration within the project root
   * Following the steps outlined in this guide: [Automated Install - CircuitPython on RaspberryPi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
     * Run `python -m venv env --system-site-packages`

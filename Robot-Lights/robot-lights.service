@@ -1,11 +1,13 @@
 [Unit]
 Description=Robot-Lights
 After=network.target
+StartLimitIntervalSec=0
 
 [Service]
 Type=simple
 ExecStart=/home/pi/Robot-Lights/env/bin/python3 /home/pi/Robot-Lights/main.py
 Restart=always
+RestartSec=1
 KillSignal=SIGINT
 
 [Install]
