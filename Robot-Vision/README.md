@@ -12,8 +12,8 @@
 ## Software
 * Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html)
 * Arducam calibration import 
-  * OV9281 @ 1280x720: [calib_arducam_backward__0c45_6366__1280.json](./calib_arducam_backward__0c45_6366__1280.json)
-  * OV9782 @ 1280x720: [calib_3937__0c45_6366__1280.json](./calib_3937__0c45_6366__1280.json)
+  * OV9281 @ 1280x720: [calib_arducam_ov9281_1280x720.json](./calib_arducam_ov9281_1280x720.json)
+  * OV9782 @ 1280x720: [calib_arducam_ov9782_1280x720.json](./calib_arducam_ov9782_1280x720.json)
 
 ## Setup & Configuration
 * OrangePi 5 OS setup after initial boot:
