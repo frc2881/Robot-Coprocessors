@@ -21,8 +21,9 @@ colorHotPinkDim = color.calculate_intensity((150, 0, 15), 0.1)
 pixels = neopixel.NeoPixel(BOARD_PIN, LIGHTS_COUNT, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
 
 default = comet.Comet(pixels, speed=0.015, color=colorHotPink, tail_length=24)
+visionNotReady = chase.Chase(pixels, speed=0.02, color=color.YELLOW, size=6, spacing=6)
 intakeNotReady = chase.Chase(pixels, speed=0.02, color=color.BLUE, size=6, spacing=6)
-intakeReady = chase.Chase(pixels, speed=0.02, color=color.ORANGE, size=6, spacing=6, reverse=True)
+intakeReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=6, spacing=6, reverse=True)
 launchReady = pulse.Pulse(pixels, speed=0.1, color=color.GREEN, period=0.2)
 
 def onExit():
@@ -34,6 +35,10 @@ atexit.register(onExit)
 while True:
  if nt.isConnected():
    match lightsModeTopic.get():
+     case "VisionNotReady":
+       visionNotReady.animate()
+     case "IntakeNotReady":
+       intakeNotReady.animate()
      case "IntakeReady":
        intakeReady.animate()
      case "LaunchReady":
