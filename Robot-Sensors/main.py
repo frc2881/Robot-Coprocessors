@@ -44,7 +44,7 @@ distanceSensorIntake = None
 try:
   distanceSensorIntake = VL53L4CD(tca[0])
   distanceSensorIntake.inter_measurement = 0
-  distanceSensorIntake.timing_budget = 10
+  distanceSensorIntake.timing_budget = 20
   distanceSensorIntake.start_ranging()
 except:
   pass
@@ -53,7 +53,7 @@ distanceSensorLauncher = None
 try:
   distanceSensorLauncher = VL53L4CD(tca[1])
   distanceSensorLauncher.inter_measurement = 0
-  distanceSensorLauncher.timing_budget = 10
+  distanceSensorLauncher.timing_budget = 20
   distanceSensorLauncher.start_ranging()
 except:
   pass
@@ -62,7 +62,7 @@ distanceSensorClimber = None
 try:
   distanceSensorClimber = VL53L4CD(tca[2])
   distanceSensorClimber.inter_measurement = 0
-  distanceSensorClimber.timing_budget = 10
+  distanceSensorClimber.timing_budget = 20
   distanceSensorClimber.start_ranging()
 except:
   pass
