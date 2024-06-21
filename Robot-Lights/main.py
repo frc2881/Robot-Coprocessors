@@ -7,7 +7,7 @@ from adafruit_led_animation import color, animation, helper
 from adafruit_led_animation.animation import comet, chase, pulse
 
 BOARD_PIN = board.D18
-LIGHTS_COUNT = 29
+LIGHTS_COUNT = 37
 
 nt = ntcore.NetworkTableInstance.getDefault()
 nt.startClient4("coproc-robot-lights")
