@@ -11,9 +11,7 @@
 
 ## Software
 * Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html)
-* Arducam calibration import 
-  * OV9281 @ 1280x720: [calib_arducam_ov9281_1280x720.json](./calib_arducam_ov9281_1280x720.json)
-  * OV9782 @ 1280x720: [calib_arducam_ov9782_1280x720.json](./calib_arducam_ov9782_1280x720.json)
+* Arducam calibration imports
 
 ## Setup & Configuration
 * OrangePi 5 OS setup after initial boot:
@@ -25,7 +23,7 @@
   * Under Settings, configure NT server address (`10.28.81.2`), static IP address (`10.28.81.6`), host name (`frc2881-vision`) and network manager interface
   * Configure camera name, model, and import calibration file (for AprilTag tracking cameras)
   * Select pipeline for each camera as appropriate (AprilTag or Object Detection)
-  * For AprilTag pipeline, select resolution of 1280x720 @ 120FPS/MJPEG (matching with imported calibration)
+  * For AprilTag pipeline, select resolution matching with imported calibration
   * For Object Detection pipeline, select 1024x768 @ 30FPS/MJPEG
   * For all cameras, select the lowest possible stream resolution option for each camera (to minimize the bandwidth required for streaming back to the driver station app)
   * Generally follow all other recommended default settings from PhotonVision (enabling 3D mode for AprilTags, etc.)
