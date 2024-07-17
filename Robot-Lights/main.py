@@ -5,7 +5,7 @@ import time
 import ntcore
 import neopixel
 from adafruit_led_animation import color
-from adafruit_led_animation.animation import comet, chase, pulse
+from adafruit_led_animation.animation import comet, chase
 
 class LightsMode(Enum):
   Default = auto()
@@ -30,11 +30,11 @@ colorHotPinkDim = color.calculate_intensity((150, 0, 15), 0.1)
 pixels = neopixel.NeoPixel(BOARD_PIN, LIGHTS_COUNT, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
 
 default = comet.Comet(pixels, speed=0.015, color=colorHotPink, tail_length=18)
-robotNotReady = pulse.Pulse(pixels, speed=0.2, color=color.RED, period=0.4)
+robotNotReady = chase.Chase(pixels, speed=0.2, color=color.RED, size=6, spacing=6)
 visionNotReady = chase.Chase(pixels, speed=0.02, color=color.YELLOW, size=6, spacing=6)
 intakeNotReady = chase.Chase(pixels, speed=0.02, color=color.BLUE, size=6, spacing=6)
 intakeReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=6, spacing=6, reverse=True)
-launchReady = pulse.Pulse(pixels, speed=0.2, color=color.GREEN, period=0.4)
+launchReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=6, spacing=6)
 
 def onExit():
   pixels.fill(color.BLACK)
