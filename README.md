@@ -72,14 +72,13 @@ See: [Robot-Vision](Robot-Vision) README for full setup and configuration detail
   * Connect remotely using terminal: `ssh pi@10.28.81.7` 
   * Run `sudo apt-get update`
   * Run `sudo apt-get upgrade` 
-  * Run `sudo apt-get install -y git build-essential libc-dev`
+  * Run `sudo apt-get install -y git build-essential libc-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev`
   * Run `sudo apt-get install -y --upgrade python3-pip python3-setuptools python3.11-venv`
   * Install Python 3.12.3
     * Run `wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz`
-    * Run `tar -xf Python-3.12.0.tgz`
+    * Run `tar -xf Python-3.12.3.tgz`
     * Run `cd Python-3.12.3`
-    * Run `./configure --enable-optimizations`
-    * Run `make -j 4`
+    * Run `./configure`
     * Run `sudo make altinstall`
     * Run `cd ..`
     * Run `rm -rf Python-3.12.3`
