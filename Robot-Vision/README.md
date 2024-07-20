@@ -12,6 +12,7 @@
 ## Software
 * Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html)
 * Arducam calibration imports
+* Arducam serial number utility
 
 ## Setup & Configuration
 * OrangePi 5 OS setup after initial boot:
