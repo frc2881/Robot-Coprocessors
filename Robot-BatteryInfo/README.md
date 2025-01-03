@@ -1,4 +1,4 @@
-# Robot-BatteryInfo
+# Robot-BatteryInfo (TO BE UPDATED)
 
 ## Capabilities
 * Python app for logging battery ID info from passive RFID-tagged batteries
@@ -8,7 +8,7 @@
 * NFC Tag Cards: [THONSEN NTAG215 PVC Cards](https://www.amazon.com/dp/B087P24Q8K)
 
 ## Setup & Configuration
-* Setup environment and install libraries (RPi must be connected to internet)
+* Setup environment and install libraries (coproc must be connected to internet)
   * Run `cd Robot-BatteryInfo` to peform the setup and configuration within the project root
   * Run `python -m venv env --system-site-packages`
   * Run `source env/bin/activate`

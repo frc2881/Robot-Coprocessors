@@ -10,21 +10,21 @@ nt.startClient4("coproc-robot-sensors")
 nt.setServer("10.28.81.2", NetworkTableInstance.kDefaultPort4)
 
 distanceSensorIntakeTopic = nt.getDoubleTopic(
-  "/SmartDashboard/Robot/Sensor/Distance/Intake/Value"
+  "/SmartDashboard/Robot/Sensors/Distance/Intake/Value"
 ).publish(
   PubSubOptions(periodic=0.01)
 )
 distanceSensorIntakeTopic.setDefault(-1.0)
 
 distanceSensorLauncherTopic = nt.getDoubleTopic(
-  "/SmartDashboard/Robot/Sensor/Distance/Launcher/Value"
+  "/SmartDashboard/Robot/Sensors/Distance/Launcher/Value"
 ).publish(
   PubSubOptions(periodic=0.01)
 )
 distanceSensorLauncherTopic.setDefault(-1.0)
 
 distanceSensorClimberTopic = nt.getDoubleTopic(
-  "/SmartDashboard/Robot/Sensor/Distance/Climber/Value"
+  "/SmartDashboard/Robot/Sensors/Distance/Climber/Value"
 ).publish(
   PubSubOptions(periodic=0.01)
 )

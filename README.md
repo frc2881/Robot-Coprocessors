@@ -16,8 +16,8 @@ Following the requirements from: [WPILib Docs - Networking - Static IP Configura
 | Radio | `10.28.81.1` | FMS |
 | roboRIO | `10.28.81.2` | 255.255.255.0 |
 | Driver Station | `10.28.81.5` | 255.0.0.0 / 8 |
-| Robot-Vision | `10.28.81.6` | 255.255.255.0 / 24 |
-| Robot-Controls | `10.28.81.7` | 255.255.255.0 / 24 |
+| Robot-Coprocessor-1 | `10.28.81.6` | 255.255.255.0 / 24 |
+| Robot-Coprocessor-2 | `10.28.81.7` | 255.255.255.0 / 24 |
 
 ## Robot Vision
 
@@ -27,64 +27,22 @@ Following the requirements from: [WPILib Docs - Networking - Static IP Configura
 * Camera (for Object detection) [Arducam OV9782 Color Global Shutter](https://www.arducam.com/product/100fps-global-shutter-color-usb-camera-board-1mp-ov9782-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi-arducam/)
 
 ### Software
-* Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html)
-* Arducam calibration import 
-  * OV9281 @ 1280x720: [calib_arducam_backward__0c45_6366__1280.json](./calib_arducam_backward__0c45_6366__1280.json)
-  * OV9782 @ 1280x720: [calib_3937__0c45_6366__1280.json](./calib_3937__0c45_6366__1280.json)
+* Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html) 
+  * See [Robot-Vision](Robot-Vision) README for full setup and configuration details
+* Configuration for SPI (lights) & I2C (sensors) interfaces for GPIO
+  * Info: Device tree overlays: https://github.com/Joshua-Riek/ubuntu-rockchip/wiki/Ubuntu-24.04-LTS
+  * Info: Orange Pi 5 Pro pin out: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html
+  * `sudo nano /etc/default/u-boot`
+  * `U_BOOT_FDT_OVERLAYS="device-tree/rockchip/overlay/rk3588-i2c5-m3.dtbo device-tree/rockchip/overlay/rk3588-spi4-m2-cs0-spidev.dtbo"`
+  * sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+  * sudo apt-get install libgpiod2 python3-libgpiod
+  * sudo apt-get install -y python3-smbus python3-dev i2c-tools
+  * sudo adduser pi i2c
+  * Inside venv as needed:
+    * pip install gpiod
+    * pip install adafruit-blinka
+    * pip install adafruit-circuitpython-neopixel-spi
 
-See: [Robot-Vision](Robot-Vision) README for full setup and configuration details
-
-## Robot Controls
-
-### Hardware
-* Board: [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
-* See each controls project README for additional hardware components
-
-### Software
-* Operating System: [Raspberry Pi OS Lite (64-bit / bookworm)](https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit)
-* microSD card imaging: [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-* Python 3.12.3
-* See each controls project README for additional software components
-
-## Setup & Configuration
-* Raspberry Pi Imager settings:
-  * General
-    * Set hostname: `frc2881-controls`.local
-    * Set username and password: `pi` / `ladycans`
-    * No WLAN
-    * Set locale settings: `Central (America/Chicago)` / `us`
-  * Services
-    * Enable SSH: Use password authentication 
-* Raspberry Pi OS setup after initial boot:
-  * Connect remotely using terminal: `ssh pi@10.28.81.???` (find the dynamic IP address assigned using Angry IP Scanner looking for port 22)
-  * Run `sudo raspi-config`
-    * Interface Options:
-      * Enable I2C and SPI interfaces
-    * Localization Options:
-      * Locale: disable en_GB / enable: en_US / select en_US.UTF-8
-    * Advanced options:
-      * Expand filesystem
-      * Enable (predictable) network interface names
-    * Exit / reboot / reconnect
-  * Set the static IP address: `sudo nmcli con mod "Wired connection 1" ipv4.addresses 10.28.81.7/24 ipv4.gateway 10.28.81.1 ipv4.dns "10.28.81.1" ipv4.method manual`
-  * Update and restart the connection: `sudo nmcli con up "Wired connection 1"`
-* Base OS and Python updates, library installs and project cloning (RPi must be connected to the internet)
-  * Connect remotely using terminal: `ssh pi@10.28.81.7` 
-  * Run `sudo apt-get update`
-  * Run `sudo apt-get upgrade` 
-  * Run `sudo apt-get install -y git build-essential libc-dev zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev swig pcscd libpcsclite-dev`
-  * Run `sudo apt-get install -y --upgrade python3-pip python3-setuptools python3.12-venv`
-  * Install Python 3.12.3
-    * Run `wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz`
-    * Run `tar -xf Python-3.12.3.tgz`
-    * Run `cd Python-3.12.3`
-    * Run `./configure`
-    * Run `sudo make altinstall`
-    * Run `cd ..`
-    * Run `rm -rf Python-3.12.3`
-  * Run `git clone https://github.com/frc2881/Robot-Coprocessors` (assuming you are in the `pi` home root)
-  * Run `mv Robot-Coprocessors/* .` to relocate all projects and code into the `pi` home root
-  * Run `rm -rf Robot-Coprocessors` to remove the empty repo folder
 * Follow the setup and configuration steps for each of the controls coprocessor projects
   * [Robot-Sensors](Robot-Sensors)
   * [Robot-Lights](Robot-Lights)

@@ -1,4 +1,4 @@
-# Robot-Sensors 
+# Robot-Sensors (TO BE UPDATED)
 
 ## Capabilities
 * Fine-grained distance measurement using ToF (Time of Flight) sensors for object proximity detection internally within the robot mechanisms and/or externally around the robot chassis as appropriate
@@ -16,7 +16,7 @@
 * [Adafruit CircuitPython TCA9548A Library](https://docs.circuitpython.org/projects/tca9548a/en/latest/)
 
 ## Setup & Configuration
-* Setup environment and install libraries (RPi must be connected to internet)
+* Setup environment and install libraries (coproc must be connected to internet)
   * Run `sudo nano /boot/firmware/config.txt`
     * Add the following line `dtparam=i2c_arm_baudrate=100000` right after the existing dtparam entries
     * Save the file and reboot the pickup the clock speed change

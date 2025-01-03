@@ -11,7 +11,6 @@
 
 ## Software
 * Operating System + PhotonVision: [Orange Pi Installation](https://docs.photonvision.org/en/latest/docs/installation/sw_install/orange-pi.html)
-* Arducam calibration imports
 * Arducam serial number utility
 
 ## Setup & Configuration
@@ -21,8 +20,8 @@
   * Change the default password: `passwd` (change `raspberry` to  `ladycans`)
   * Open PhotonVision in web browser to confirm networking change and complete season-specific configuration and calibration: `http://10.28.81.???:5800`
 * PhotonVision configuration (see [documentation](https://docs.photonvision.org/en/latest/index.html) for complete details):
-  * Under Settings, configure NT server address (`10.28.81.2`), static IP address (`10.28.81.6`), host name (`frc2881-coproc-1`) and network manager interface
-  * Configure camera name, model, and import calibration file (for AprilTag tracking cameras)
+  * Under Settings, configure NT server address (`10.28.81.2`), static IP address (`10.28.81.6`), host name (`frc2881-coproc-[1|2]`) and network manager interface
+  * Configure camera name, model, and run calibration with Charuco board for AprilTag tracking cameras (ask a mentor for help with Charuco board calibration process)
   * Select pipeline for each camera as appropriate (AprilTag or Object Detection)
   * For AprilTag pipeline, select resolution matching with imported calibration
   * For Object Detection pipeline, select 1024x768 @ 30FPS/MJPEG

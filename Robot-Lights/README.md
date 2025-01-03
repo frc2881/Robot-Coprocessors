@@ -1,4 +1,4 @@
-# Robot-Lights
+# Robot-Lights (TO BE UPDATED)
 
 ## Capabilities
 * Controller for WS2812B addressable LED strips and/or matrix panels to offload lighting operations from the roboRIO and robot code
@@ -12,7 +12,7 @@
 * [Adafruit CircuitPython LED Animation Library](https://docs.circuitpython.org/projects/led-animation/en/latest/)
 
 ## Setup & Configuration
-* Setup environment and install libraries (RPi must be connected to internet)
+* Setup environment and install libraries (coproc must be connected to internet)
   * Run `cd Robot-Lights` to peform the setup and configuration within the project root
   * Following the steps outlined in this guide: [Automated Install - CircuitPython on RaspberryPi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
     * Run `python -m venv env --system-site-packages`
