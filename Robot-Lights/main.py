@@ -3,7 +3,7 @@ import atexit
 import board
 import time
 import ntcore
-import neopixel
+import neopixel_spi as neopixel
 from adafruit_led_animation import color
 from adafruit_led_animation.animation import comet, chase
 
@@ -15,8 +15,7 @@ class LightsMode(Enum):
   IntakeNotReady = auto()
   LaunchReady = auto()
 
-BOARD_PIN = board.D18
-LIGHTS_COUNT = 37
+LIGHTS_COUNT = 17
 
 nt = ntcore.NetworkTableInstance.getDefault()
 nt.startClient4("coproc-robot-lights")
@@ -27,14 +26,14 @@ lightsModeTopic = nt.getStringTopic("/SmartDashboard/Robot/Lights/Mode").subscri
 colorHotPink = color.calculate_intensity((150, 0, 15), 1)
 colorHotPinkDim = color.calculate_intensity((150, 0, 15), 0.1)
 
-pixels = neopixel.NeoPixel(BOARD_PIN, LIGHTS_COUNT, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
+pixels = neopixel.NeoPixel_SPI(board.SPI(), LIGHTS_COUNT, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
 
-default = comet.Comet(pixels, speed=0.015, color=colorHotPink, tail_length=18)
-robotNotReady = chase.Chase(pixels, speed=0.2, color=color.RED, size=6, spacing=6)
+default = comet.Comet(pixels, speed=0.02, color=colorHotPink, tail_length=15, bounce=True)
+robotNotReady = chase.Chase(pixels, speed=0.02, color=color.RED, size=6, spacing=6)
 visionNotReady = chase.Chase(pixels, speed=0.02, color=color.YELLOW, size=6, spacing=6)
 intakeNotReady = chase.Chase(pixels, speed=0.02, color=color.BLUE, size=6, spacing=6)
 intakeReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=6, spacing=6, reverse=True)
-launchReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=6, spacing=6)
+launchReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=18, spacing=2)
 
 def onExit():
   pixels.fill(color.BLACK)
