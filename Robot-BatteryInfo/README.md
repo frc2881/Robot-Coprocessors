@@ -9,15 +9,15 @@
 
 ## Setup & Configuration
 * Setup environment and install libraries (coproc must be connected to internet)
-  * Run `cd Robot-BatteryInfo` to peform the setup and configuration within the project root
-  * Run `python -m venv env --system-site-packages`
-  * Run `source env/bin/activate`
-  * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
-  * Run `pip install --upgrade setuptools`
-  * Run `git clone https://github.com/LudovicRousseau/pyscard.git`
-  * Run `cd pyscard`
-  * Run `sudo ../env/bin/python setup.py build_ext install`
-  * Run `cd ..`
+  * In the root foler `Robot-BatteryInfo`:
+    * Run `python -m venv .venv --system-site-packages`
+    * Run `source .venv/bin/activate`
+    * Run `pip install --upgrade pip`
+    * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2025/simple pyntcore` (for NetworkTables Python lib via RobotPy)
+    * Run `pip install --upgrade setuptools`
+    * Run `git clone https://github.com/LudovicRousseau/pyscard.git`
+    * Run `cd pyscard`
+    * Run `sudo ../env/bin/python setup.py build_ext install`
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-batteryinfo.service /lib/systemd/system`
   * Run `sudo systemctl enable robot-batteryinfo`

@@ -13,20 +13,12 @@
 
 ## Setup & Configuration
 * Setup environment and install libraries (coproc must be connected to internet)
-  * Run `cd Robot-Lights` to peform the setup and configuration within the project root
-  * Following the steps outlined in this guide: [Automated Install - CircuitPython on RaspberryPi](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
-    * Run `python -m venv env --system-site-packages`
-    * Run `source env/bin/activate`
+  * In the root foler `Robot-Lights`:
+    * Run `python -m venv .venv --system-site-packages`
+    * Run `source .venv/bin/activate`
     * Run `pip install --upgrade pip`
-    * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2024/simple pyntcore` (for NetworkTables Python lib via RobotPy)
-    * Run `pip install --upgrade adafruit-python-shell`
-    * Run `wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/raspi-blinka.py`
-    * Run `sudo -E env PATH=$PATH python3 raspi-blinka.py`
-  * After completing the automated install steps and reconnecting, run `cd Robot-Lights` and `source env/bin/activate` for the Python virtual environment
-  * Run `rm raspi-blinka.py`
-  * Run `pip install --upgrade adafruit-circuitpython-neopixel`
-  * Run `pip install --upgrade adafruit-circuitpython-led-animation`
-  * Run `deactivate` to exit the Python virtual environment 
+    * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2025/simple pyntcore` (for NetworkTables Python lib via RobotPy)
+    * Run `pip install --upgrade gpiod adafruit-python-shell adafruit-blinka adafruit-circuitpython-neopixel-spi adafruit-circuitpython-led-animation`
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-lights.service /lib/systemd/system`
   * Run `sudo systemctl enable robot-lights`
@@ -38,6 +30,6 @@
   * Connect remotely using terminal: `ssh pi@10.28.81.7`
   * Run `sudo systemctl stop robot-lights` (to stop the service and enable editing and testing)
   * Run `cd Robot-Lights`
-  * Run `source env/bin/activate`
+  * Run `source .venv/bin/activate`
   * Run `nano main.py` (to edit/save the main Python script)
   * Run `sudo --preserve-env=PATH,VIRTUAL_ENV python -u main.py` to run the Python script outside the service context for development purposes

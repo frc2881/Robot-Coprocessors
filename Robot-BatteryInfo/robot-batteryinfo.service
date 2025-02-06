@@ -5,7 +5,7 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-ExecStart=/home/pi/Robot-BatteryInfo/env/bin/python3 /home/pi/Robot-BatteryInfo/main.py
+ExecStart=/home/pi/Robot-BatteryInfo/.venv/bin/python3 /home/pi/Robot-BatteryInfo/main.py
 Restart=always
 RestartSec=1
 KillSignal=SIGINT
