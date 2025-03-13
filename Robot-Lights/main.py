@@ -5,17 +5,18 @@ import time
 import ntcore
 import neopixel_spi as neopixel
 from adafruit_led_animation import color
-from adafruit_led_animation.animation import comet, chase
+from adafruit_led_animation.animation import chase, pulse, solid
 
 class LightsMode(Enum):
   Default = auto()
-  RobotNotReady = auto()
+  RobotNotConnected = auto()
+  RobotNotReset = auto()
   VisionNotReady = auto()
-  IntakeReady = auto()
-  IntakeNotReady = auto()
-  LaunchReady = auto()
+  AlignedToPosition = auto()
+  ReadyForClimb = auto()
 
-LIGHTS_COUNT = 17
+LIGHTS_COUNT = 128
+ANIMATION_SPEED = 0.03
 
 nt = ntcore.NetworkTableInstance.getDefault()
 nt.startClient4("coproc-robot-lights")
@@ -23,17 +24,14 @@ nt.setServer("10.28.81.2", ntcore.NetworkTableInstance.kDefaultPort4)
 
 lightsModeTopic = nt.getStringTopic("/SmartDashboard/Robot/Lights/Mode").subscribe("Default")
 
-colorHotPink = color.calculate_intensity((150, 0, 15), 1)
-colorHotPinkDim = color.calculate_intensity((150, 0, 15), 0.1)
+pixels = neopixel.NeoPixel_SPI(board.SPI(), LIGHTS_COUNT, brightness=0.2, auto_write=False, pixel_order=neopixel.GRB)
 
-pixels = neopixel.NeoPixel_SPI(board.SPI(), LIGHTS_COUNT, brightness=1, auto_write=False, pixel_order=neopixel.GRB)
+default = chase.Chase(pixels, speed=ANIMATION_SPEED, color=0x99000A, size=6, spacing=3)
+error = pulse.Pulse(pixels, speed=ANIMATION_SPEED, color=color.RED, period=2.0, min_intensity=0, max_intensity=0.25)
+warning = pulse.Pulse(pixels, speed=ANIMATION_SPEED, color=color.AMBER, period=1.5, min_intensity=0.01, max_intensity=0.5)
 
-default = comet.Comet(pixels, speed=0.02, color=colorHotPink, tail_length=15, bounce=True)
-robotNotReady = chase.Chase(pixels, speed=0.02, color=color.RED, size=6, spacing=6)
-visionNotReady = chase.Chase(pixels, speed=0.02, color=color.YELLOW, size=6, spacing=6)
-intakeNotReady = chase.Chase(pixels, speed=0.02, color=color.BLUE, size=6, spacing=6)
-intakeReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=6, spacing=6, reverse=True)
-launchReady = chase.Chase(pixels, speed=0.02, color=color.GREEN, size=18, spacing=2)
+alignedToPosition = chase.Chase(pixels, speed=ANIMATION_SPEED, color=color.GREEN, size=4, spacing=2)
+readyForClimb = chase.Chase(pixels, speed=ANIMATION_SPEED, color=color.BLUE, size=5, spacing=1)
 
 def onExit():
   pixels.fill(color.BLACK)
@@ -42,24 +40,19 @@ def onExit():
 atexit.register(onExit)
 
 while True:
- if nt.isConnected():
-   match lightsModeTopic.get():
-     case LightsMode.RobotNotReady.name:
-       robotNotReady.animate()
-     case LightsMode.VisionNotReady.name:
-       visionNotReady.animate()
-     case LightsMode.IntakeNotReady.name:
-       intakeNotReady.animate()
-     case LightsMode.IntakeReady.name:
-       intakeReady.animate()
-     case LightsMode.LaunchReady.name:
-       launchReady.animate()
-     case LightsMode.Default.name:
-       default.animate()
-     case _:
-       pixels.fill(colorHotPinkDim)
-       pixels.show()
- else:
-  pixels.fill(colorHotPinkDim)
-  pixels.show()
-  time.sleep(1)
+  if nt.isConnected():
+    match lightsModeTopic.get():
+      case LightsMode.RobotNotConnected.name:
+        error.animate()
+      case LightsMode.RobotNotReset.name:
+        warning.animate()
+      case LightsMode.VisionNotReady.name:
+        warning.animate()
+      case LightsMode.AlignedToPosition.name:
+        alignedToPosition.animate()
+      case LightsMode.ReadyForClimb.name:
+        readyForClimb.animate()
+      case _:
+        default.animate()
+  else:
+    error.animate()
