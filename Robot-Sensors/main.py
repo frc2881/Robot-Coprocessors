@@ -1,4 +1,5 @@
 import atexit
+import board
 import busio
 import time
 from ntcore import NetworkTableInstance, PubSubOptions
@@ -9,36 +10,57 @@ nt = NetworkTableInstance.getDefault()
 nt.startClient4("coproc-robot-sensors")
 nt.setServer("10.28.81.2", NetworkTableInstance.kDefaultPort4)
 
-distanceSensorLauncherTopic = nt.getDoubleTopic(
-  "/SmartDashboard/Robot/Sensors/Distance/Launcher/Value"
+distanceSensorGripperTopic = nt.getDoubleTopic(
+  "/SmartDashboard/Robot/Sensors/Distance/Gripper/Value"
 ).publish(
   PubSubOptions(periodic=0.01)
 )
-distanceSensorLauncherTopic.setDefault(-1.0)
+distanceSensorGripperTopic.setDefault(-1.0)
+
+distanceSensorIntakeTopic = nt.getDoubleTopic(
+  "/SmartDashboard/Robot/Sensors/Distance/Intake/Value"
+).publish(
+  PubSubOptions(periodic=0.01)
+)
+distanceSensorIntakeTopic.setDefault(-1.0)
 
 def onExit():
-  distanceSensorLauncherTopic.set(-1.0)
+  distanceSensorGripperTopic.set(-1.0)
+  distanceSensorIntakeTopic.set(-1.0)
 
 atexit.register(onExit)
 
 i2c = busio.I2C(board.I2C5_SCL, board.I2C5_SDA)
 tca = TCA9548A(i2c)
 
-distanceSensorLauncher = None
+distanceSensorGripper = None
+distanceSensorIntake = None
+
 try:
-  distanceSensorLauncher = VL53L4CD(tca[0])
-  distanceSensorLauncher.inter_measurement = 0
-  distanceSensorLauncher.timing_budget = 10
-  distanceSensorLauncher.start_ranging()
+  distanceSensorGripper = VL53L4CD(tca[0])
+  distanceSensorGripper.inter_measurement = 0
+  distanceSensorGripper.timing_budget = 10
+  distanceSensorGripper.start_ranging()
+
+  distanceSensorIntake = VL53L4CD(tca[1])
+  distanceSensorIntake.inter_measurement = 0
+  distanceSensorIntake.timing_budget = 10
+  distanceSensorIntake.start_ranging()
 except:
   pass
 
 while True:
   if nt.isConnected():
-    if distanceSensorLauncher is not None:
-      if distanceSensorLauncher.data_ready:
-        distanceLauncher = distanceSensorLauncher.distance * 10
-        distanceSensorLauncher.clear_interrupt()
-        distanceSensorLauncherTopic.set(distanceLauncher if distanceLauncher > 0 else -1)
+    if distanceSensorGripper is not None:
+      if distanceSensorGripper.data_ready:
+        distanceGripper = distanceSensorGripper.distance * 10
+        distanceSensorGripper.clear_interrupt()
+        distanceSensorGripperTopic.set(distanceGripper if distanceGripper > 0 else -1)
+
+    if distanceSensorIntake is not None:
+      if distanceSensorIntake.data_ready:
+        distanceIntake = distanceSensorIntake.distance * 10
+        distanceSensorIntake.clear_interrupt()
+        distanceSensorIntakeTopic.set(distanceIntake if distanceIntake > 0 else -1)
   else:
     time.sleep(1)
