@@ -10,7 +10,7 @@ from adafruit_led_animation.animation import chase, pulse, solid
 class LightsMode(Enum):
   Default = auto()
   RobotNotConnected = auto()
-  RobotNotReset = auto()
+  RobotNotHomed = auto()
   VisionNotReady = auto()
   AlignedToPosition = auto()
   ReadyForClimb = auto()
@@ -44,7 +44,7 @@ while True:
     match lightsModeTopic.get():
       case LightsMode.RobotNotConnected.name:
         error.animate()
-      case LightsMode.RobotNotReset.name:
+      case LightsMode.RobotNotHomed.name:
         warning.animate()
       case LightsMode.VisionNotReady.name:
         warning.animate()
