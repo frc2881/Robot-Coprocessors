@@ -5,7 +5,6 @@ A collection of component projects, source code and documentation for various on
 * [Robot-Vision](Robot-Vision)
 * [Robot-BatteryInfo](Robot-BatteryInfo)
 * [Robot-Lights](Robot-Lights)
-* [Robot-Sensors](Robot-Sensors)
 
 ## Hardware & Software
 
@@ -17,7 +16,7 @@ A collection of component projects, source code and documentation for various on
 ### Base Software
 * Use base image for OrangePi 5 Pro from PhotonVision: [Quick Install](https://docs.photonvision.org/en/latest/docs/quick-start/quick-install.html) 
   * See [Robot-Vision](Robot-Vision) README for initial setup and networking, etc. configuration details for the base PhotonVision install
-* Additional configuration for common SPI (lights) & I2C (sensors) interfaces for GPIO (if applicable to the specific coprocessor instance)
+* Additional configuration for common SPI and I2C interfaces for GPIO (if applicable to the specific coprocessor instance)
   * OrangePi 5 Pro device tree modification: 
     * Device tree overlays: https://github.com/Joshua-Riek/ubuntu-rockchip/wiki/Ubuntu-24.04-LTS
       * `sudo nano /etc/default/u-boot`
@@ -34,4 +33,3 @@ A collection of component projects, source code and documentation for various on
 * Follow the setup and configuration steps for each of the controls coprocessor projects
   * [Robot-BatteryInfo](Robot-BatteryInfo)
   * [Robot-Lights](Robot-Lights)
-  * [Robot-Sensors](Robot-Sensors)

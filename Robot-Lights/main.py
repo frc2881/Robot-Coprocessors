@@ -12,8 +12,6 @@ class LightsMode(Enum):
   RobotNotConnected = auto()
   RobotNotHomed = auto()
   VisionNotReady = auto()
-  AlignedToPosition = auto()
-  ReadyForClimb = auto()
 
 LIGHTS_COUNT = 128
 ANIMATION_SPEED = 0.03
@@ -31,7 +29,6 @@ error = pulse.Pulse(pixels, speed=ANIMATION_SPEED, color=color.RED, period=2.0, 
 warning = pulse.Pulse(pixels, speed=ANIMATION_SPEED, color=color.AMBER, period=1.5, min_intensity=0.01, max_intensity=0.5)
 
 alignedToPosition = chase.Chase(pixels, speed=ANIMATION_SPEED, color=color.GREEN, size=4, spacing=2)
-readyForClimb = chase.Chase(pixels, speed=ANIMATION_SPEED, color=color.BLUE, size=5, spacing=1)
 
 def onExit():
   pixels.fill(color.BLACK)
@@ -48,10 +45,6 @@ while True:
         warning.animate()
       case LightsMode.VisionNotReady.name:
         warning.animate()
-      case LightsMode.AlignedToPosition.name:
-        alignedToPosition.animate()
-      case LightsMode.ReadyForClimb.name:
-        readyForClimb.animate()
       case _:
         default.animate()
   else:
