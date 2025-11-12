@@ -1,5 +1,5 @@
 # Robot-Coprocessors
-A collection of component projects, source code and documentation for various on-board secondary robot coprocessors including vision tracking, distance sensors, LED lighting, and battery tagging/logging
+A collection of component projects, source code, and documentation for various on-board robot coprocessor functions including vision/localization (PhotonVision), sensors, lights, and battery tagging/logging
 
 ## Components
 * [Robot-Vision](Robot-Vision)
