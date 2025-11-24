@@ -4,8 +4,11 @@
 * AprilTag tracking for robot pose estimation 
 * Object detection for game piece identification and relative position info
 
-## Hardware & Software
-* See readme at the root of [Robot-Coprocessors](https://github.com/frc2881/Robot-Coprocessors) 
+## Hardware 
+* See [Hardware & Electronics Invetory](https://github.com/frc2881/Documentation/wiki/Hardware-&-Electronics-Inventory#sensors)
+
+## Software
+* See [Robot-Coprocessors](https://github.com/frc2881/Robot-Coprocessors) 
 
 ## Setup & Configuration
 * OrangePi 5 Pro OS image setup after initial boot:
