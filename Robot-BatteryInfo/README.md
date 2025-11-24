@@ -4,8 +4,7 @@
 * Python app for logging battery ID info from passive RFID-tagged batteries
 
 ## Hardware
-* Reader: [ACR122U NFC RFID 13.56MHz Contactless Smart Card Reader](https://www.amazon.com/ACR122U-Reader-Writer-Ntag213-Software/dp/B07KRKPWYC/ref=sr_1_3)
-* NFC Tag Cards: [THONSEN NTAG215 PVC Cards](https://www.amazon.com/dp/B087P24Q8K)
+* See [Hardware & Electronics Invetory](https://github.com/frc2881/Documentation/wiki/Hardware-&-Electronics-Inventory#sensors)
 
 ## Setup & Configuration
 * Setup environment and install libraries (coproc must be connected to internet)
