@@ -17,7 +17,7 @@
   * Under Settings, configure NT server address (`10.28.81.2`), static IP address (`10.28.81.6` or `'.7`), host name (`frc2881-coproc-[1|2]`) and default network manager interface
   * Configure camera name, model, and run calibration with Charuco board for AprilTag tracking cameras (ask a mentor for help with Charuco board calibration process)
   * Select pipeline for each camera as appropriate (AprilTag or Object Detection)
-  * For AprilTag pipeline, select resolution matching with imported calibration (1280x800 is standard default, Decimate=2, Threads=2)
+  * For AprilTag pipeline, select highest resolution/FPS matching calibration (1280x720 @ 120FPS should be default, Decimate=2, Threads=3), 3D processing mode (ask a mentor for help with additional detailed calibration)
   * For Object Detection pipeline, select 1024x768 @ 30FPS/MJPEG
   * For all cameras, select the lowest possible stream resolution option for each camera (to minimize the bandwidth required for streaming back to the driver station app)
-  * Generally follow all other recommended default settings from PhotonVision (enabling 3D mode for AprilTags, etc.)
+  * Generally follow all other recommended default settings from PhotonVision (enabling 3D mode for AprilTags, automatic exposure as default, etc.)
