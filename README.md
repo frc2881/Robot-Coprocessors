@@ -6,14 +6,10 @@ A collection of component projects, source code, and documentation for various o
 * [Robot-BatteryInfo](Robot-BatteryInfo)
 * [Robot-Lights](Robot-Lights)
 
-## Hardware & Software
+## Hardware 
+* See [Hardware & Electronics Invetory](https://github.com/frc2881/Documentation/wiki/Hardware-&-Electronics-Inventory#sensors)
 
-### Base Hardware 
-* Board: [OrangePi 5 Pro - 16GB](http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html)
-* Cameras (for AprilTag tracking) [Arducam OV9281 Monochrome Global Shutter](https://www.arducam.com/product/arducam-120fps-global-shutter-usb-camera-board-1mp-720p-ov9281-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi/)
-* Camera (for Object detection) [Arducam OV9782 Color Global Shutter](https://www.arducam.com/product/100fps-global-shutter-color-usb-camera-board-1mp-ov9782-uvc-webcam-module-with-low-distortion-m12-lens-without-microphones-for-computer-laptop-android-device-and-raspberry-pi-arducam/)
-
-### Base Software
+## Software
 * Use base image for OrangePi 5 Pro from PhotonVision: [Quick Install](https://docs.photonvision.org/en/latest/docs/quick-start/quick-install.html) 
   * See [Robot-Vision](Robot-Vision) README for initial setup and networking, etc. configuration details for the base PhotonVision install
 * Additional configuration for common SPI and I2C interfaces for GPIO (if applicable to the specific coprocessor instance)
@@ -33,3 +29,4 @@ A collection of component projects, source code, and documentation for various o
 * Follow the setup and configuration steps for each of the controls coprocessor projects
   * [Robot-BatteryInfo](Robot-BatteryInfo)
   * [Robot-Lights](Robot-Lights)
+  * [Robot-Vision](Robot-Vision)
