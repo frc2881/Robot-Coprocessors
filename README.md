@@ -21,7 +21,7 @@ A collection of component projects, source code, and documentation for various o
     * Reference: Orange Pi 5 Pro GPIO pin out: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html
   * To enable internet access/routing on the base OrangePi 5 Pro image from PhotonVision:
     * `sudo sysctl -w net.ipv4.ping_group_range="0 65565"`
-    * `sudo nmcli con mod static-enP4p65s0 ipv4.dns "8.8.8.8"`
+    * `sudo nmcli con mod static-end1 ipv4.dns "8.8.8.8"`
   * Install Python 3.x: `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10`
   * Install additional global dependencies: `sudo apt install -y python-venv python3-dev python3-smbus libgpiod2 python3-libgpiod i2c-tools setuptools gcc swig pyscard libpcsclite-dev`
   * Elevate i2c access: `sudo adduser pi i2c`
