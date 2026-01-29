@@ -20,7 +20,7 @@ A collection of component projects, source code, and documentation for various o
       * `sudo u-boot-update`
     * Reference: Orange Pi 5 Pro GPIO pin out: http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5-Pro.html
   * Install Python 3.x: `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10`
-  * Install additional global dependencies: `sudo apt install -y python3-venv python3-dev python3-smbus libgpiod2t64 python3-libgpiod python3-setuptools gcc swig python3-pyscard libpcsclite-dev`
+  * Install additional global dependencies: `sudo apt install -y python3-venv python3-dev libgpiod2t64 python3-libgpiod python3-setuptools gcc swig python3-pyscard libpcsclite-dev`
 
 * Follow the setup and configuration steps for each of the controls coprocessor projects
   * [Robot-BatteryInfo](Robot-BatteryInfo)
