@@ -23,7 +23,7 @@ A collection of component projects, source code, and documentation for various o
     * `sudo sysctl -w net.ipv4.ping_group_range="0 65565"`
     * `sudo nmcli con mod static-end1 ipv4.dns "8.8.8.8"`
   * Install Python 3.x: `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10`
-  * Install additional global dependencies: `sudo apt install -y python-venv python3-dev python3-smbus libgpiod2 python3-libgpiod setuptools gcc swig pyscard libpcsclite-dev`
+  * Install additional global dependencies: `sudo apt install -y python3-venv python3-dev python3-smbus libgpiod2t64 python3-libgpiod python3-setuptools gcc swig python3-pyscard libpcsclite-dev`
 
 * Follow the setup and configuration steps for each of the controls coprocessor projects
   * [Robot-BatteryInfo](Robot-BatteryInfo)
