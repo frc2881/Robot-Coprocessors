@@ -4,8 +4,7 @@
 * Controller for WS2812B addressable LED strips and/or matrix panels to offload lighting operations from the roboRIO and robot code
 
 ## Hardware 
-* [RPi GPIO Terminal Block HAT](https://www.amazon.com/dp/B08RDYDG6X)
-* [BTF-Lighting WS2812B IC LED Strip](https://www.amazon.com/dp/B01CDTEEZ2)
+* See [Hardware & Electronics Invetory](https://github.com/frc2881/Documentation/wiki/Hardware-&-Electronics-Inventory#sensors)
 
 ## Software
 * [Adafruit CircuitPython NeoPixel Library](https://docs.circuitpython.org/projects/neopixel/en/latest/)
