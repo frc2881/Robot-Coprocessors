@@ -17,7 +17,7 @@
     * Run `python -m venv .venv --system-site-packages`
     * Run `source .venv/bin/activate`
     * Run `pip install --upgrade pip`
-    * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2025/simple pyntcore` (for NetworkTables Python lib via RobotPy)
+    * Run `pip install --upgrade --extra-index-url=https://wpilib.jfrog.io/artifactory/api/pypi/wpilib-python-release-2026/simple pyntcore` (for NetworkTables Python lib via RobotPy)
     * Run `pip install --upgrade gpiod adafruit-python-shell adafruit-blinka adafruit-circuitpython-neopixel-spi adafruit-circuitpython-led-animation`
 * Install and enable service to run main Python script at system boot
   * Run `sudo cp robot-lights.service /lib/systemd/system`
